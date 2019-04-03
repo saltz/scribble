@@ -10,8 +10,8 @@ public interface IClientGateway {
     void receiveLobby(LobbyInfo lobbyInfo);
 
     void joinGame(User user, String lobbyName);
-    void setGameUpdateCallback(String name);
     void receiveGameUpdates(GameUpdate update);
 
     void hostGame(LobbyInfo lobbyInfo);
+    void sendGameUpdate(String name, GameUpdate update);
 }
