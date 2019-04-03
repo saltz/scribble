@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="238.0" prefWidth="404.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.MainScreenController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="361.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.MainScreenController">
    <children>
       <MenuBar>
         <menus>
@@ -30,24 +31,33 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Pane prefHeight="229.0" prefWidth="394.0">
+      <Pane prefHeight="337.0" prefWidth="753.0">
          <children>
             <Pane layoutX="14.0" layoutY="13.0" prefHeight="186.0" prefWidth="177.0" style="-fx-border-color: orange;">
                <children>
                   <TextField fx:id="lastname" layoutX="14.0" layoutY="80.0" promptText="lastname" />
                   <TextField fx:id="firstname" layoutX="14.0" layoutY="45.0" promptText="firstname" />
                   <TextField fx:id="username" layoutX="14.0" layoutY="113.0" promptText="username" />
-                  <Button layoutX="14.0" layoutY="147.0" mnemonicParsing="false" onMouseClicked="#createUser" prefHeight="25.0" prefWidth="149.0" text="create user" />
+                  <Button layoutX="14.0" layoutY="147.0" onAction="#createUser" prefHeight="25.0" prefWidth="149.0" text="create user" />
                   <Label layoutX="56.0" layoutY="14.0" prefHeight="17.0" prefWidth="65.0" text="Create user" />
                </children>
             </Pane>
             <Pane layoutX="212.0" layoutY="13.0" prefHeight="186.0" prefWidth="177.0" style="-fx-border-color: orange;">
                <children>
-                  <Button layoutX="14.0" layoutY="147.0" mnemonicParsing="false" onMouseClicked="#findLobby" prefHeight="25.0" prefWidth="149.0" text="find lobby" />
+                  <Button layoutX="14.0" layoutY="147.0" onAction="#findLobby" prefHeight="25.0" prefWidth="149.0" text="find lobby" />
                   <Label layoutX="56.0" layoutY="14.0" prefHeight="17.0" prefWidth="65.0" text="Find lobby" />
                   <TextField fx:id="score" layoutX="14.0" layoutY="81.0" promptText="score" />
                </children>
             </Pane>
+            <Pane layoutX="409.0" layoutY="13.0" prefHeight="186.0" prefWidth="177.0" style="-fx-border-color: orange;">
+               <children>
+                  <Button id="hostLobby" layoutX="14.0" layoutY="147.0" onAction="#hostLobby" prefHeight="25.0" prefWidth="149.0" text="host lobby" />
+                  <Label layoutX="56.0" layoutY="14.0" prefHeight="17.0" prefWidth="65.0" text="Host lobby" />
+                  <TextField id="lobbyName" fx:id="lobbyName" layoutX="14.0" layoutY="81.0" promptText="lobby name" />
+                  <TextField id="maxAmountOfPlayers" fx:id="maxAmountOfPlayers" layoutX="14.0" layoutY="110.0" promptText="max amount of players" />
+               </children>
+            </Pane>
+            <ListView fx:id="history" layoutX="11.0" layoutY="223.0" prefHeight="102.0" prefWidth="577.0" />
          </children>
       </Pane>
    </children>

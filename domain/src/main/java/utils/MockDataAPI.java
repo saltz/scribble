@@ -15,6 +15,11 @@ public class MockDataAPI {
 
     public LobbyInfo getLobbyByScore(int score) {
         List<LobbyInfo> lobbies = this.lobbies.stream().filter(lobbyInfo -> score < (lobbyInfo.hostScore + 50) && score > (lobbyInfo.hostScore - 50)).collect(Collectors.toList());
+
+        if (lobbies.size() == 0) {
+            return null;
+        }
+
         return lobbies.get(0);
     }
 

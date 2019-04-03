@@ -1,9 +1,6 @@
 package gateways.interfaces;
 
-import models.GameRequest;
-import models.GameUpdate;
-import models.LobbyInfo;
-import models.User;
+import models.*;
 
 public interface IClientGateway {
     void sendGameRequest(GameRequest request);
@@ -12,6 +9,6 @@ public interface IClientGateway {
     void joinGame(User user, String lobbyName);
     void receiveGameUpdates(GameUpdate update);
 
-    void hostGame(LobbyInfo lobbyInfo);
+    void hostGame(GameHostRequest request);
     void sendGameUpdate(String name, GameUpdate update);
 }

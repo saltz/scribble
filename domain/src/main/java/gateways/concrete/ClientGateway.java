@@ -4,10 +4,7 @@ import gateways.interfaces.IClientGateway;
 import jms.concrete.JmsReceiver;
 import jms.concrete.JmsSender;
 import jms.enums.JmsType;
-import models.GameRequest;
-import models.GameUpdate;
-import models.LobbyInfo;
-import models.User;
+import models.*;
 import utils.JsonSerializer;
 
 import javax.jms.JMSException;
@@ -61,9 +58,9 @@ public abstract class ClientGateway implements IClientGateway {
     public abstract void receiveGameUpdates(GameUpdate update);
 
     @Override
-    public void hostGame(LobbyInfo lobbyInfo) {
+    public void hostGame(GameHostRequest request) {
         JmsSender sender = new JmsSender(JmsType.QUEUE, "hostGame");
-        sender.send(jsonSerializer.toJson(lobbyInfo));
+        sender.send(jsonSerializer.toJson(request));
     }
 
     @Override
